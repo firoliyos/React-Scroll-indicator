@@ -81,7 +81,7 @@ export default function ScrollIndicator({url}) {
             </div>
           </div>
           </div>
-         <div className=""data-container>
+         <div className="data-container">
            {
             data && data.length ? 
              data.map(item => <p>{item.title}</p>)
