@@ -37,6 +37,15 @@ export default function ScrollIndicator({url}) {
       document.documentElement.scrollHeight,
       document.documentElement.clientHeight
     )
+
+    const howMuchScrolled = 
+       document.body.scrollTop || document.documentElement.scrollTop
+
+    const height = 
+       document.documentElement.scrollHeight - 
+         document.documentElement.clientHeight  
+
+    setScrollPercentage( (howMuchScrolled/height) *100)     
    }
    useEffect(() => {
      window.addEventListener('scroll', handleScrollPercentage)
@@ -48,14 +57,21 @@ export default function ScrollIndicator({url}) {
    if(loading) {
     return(
       <div>
-        <h3>Loading...</h3>
+        <h1>Loading...</h1>
       </div>
     )
   }
-   console.log(loading, data)
+   console.log(loading, scrollPercentage)
     return(
         <div>
+          <div className="top-container">
           <h1>SCROLL INDICATOR</h1>
+          <div className="scroll-progress-tracking-container">
+            <div 
+              className="current-progress-bar" 
+              style={{width: `${scrollPercentage}%`}}></div>
+          </div>
+          </div>
          <div className=""data-container>
            {
             data && data.length ? 
