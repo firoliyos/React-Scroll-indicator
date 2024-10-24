@@ -1,8 +1,9 @@
+import ScrollIndicator from "./components";
 
 function App() {
   return (
     <div className="App">
-      Hello
+      <ScrollIndicator url={'https://dummyjson.com/products?limit=100'} />
     </div>
   );
 }
