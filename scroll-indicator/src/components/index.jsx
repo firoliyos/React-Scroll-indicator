@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import "./scroll.css"
 
 export default function ScrollIndicator({url}) {
 
@@ -61,6 +61,14 @@ export default function ScrollIndicator({url}) {
       </div>
     )
   }
+
+  if(errorMsg) {
+    return(
+      <div>
+        Error! {errorMsg}
+      </div>
+    )
+  }
    console.log(loading, scrollPercentage)
     return(
         <div>
@@ -69,7 +77,8 @@ export default function ScrollIndicator({url}) {
           <div className="scroll-progress-tracking-container">
             <div 
               className="current-progress-bar" 
-              style={{width: `${scrollPercentage}%`}}></div>
+              style={{width: `${scrollPercentage}%`}}>
+            </div>
           </div>
           </div>
          <div className=""data-container>
